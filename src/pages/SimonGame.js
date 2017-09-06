@@ -33,16 +33,18 @@ class SimonGame extends Component {
 
         return (
             <Row>
-                <Col xs={12} md={8} mdOffset={2}>
-                    <Col xs={12}>
-                        <TopPanel {...simonActions} {...simon} />
-                    </Col>
-                    <Col xs={12}>
-                        <Controller {...simonActions} {...simon} />
-                    </Col>
-                    <Col xs={12}>
-                        <ControlPanel {...simonActions} {...simon} />
-                    </Col>
+                <Col xs={12} md={8} mdOffset={2} className="simon-outer-shell">
+
+                        <Col xs={12}>
+                            <TopPanel {...simonActions} {...simon} />
+                        </Col>
+                        <Col xs={12}>
+                            <Controller {...simonActions} {...simon} />
+                        </Col>
+                        <Col xs={12}>
+                            <ControlPanel {...simonActions} {...simon} />
+                        </Col>
+
                 </Col>
             </Row>
 
