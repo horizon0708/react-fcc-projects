@@ -4,7 +4,8 @@ import GameButton from './GameButton';
 import Whilst from 'async/whilst';
 import PropTypes from 'prop-types';
 import { generateSequence } from './Logic';
-
+import DebugDisplay from './DebugDisplay';
+import { Col } from 'react-bootstrap';
 class Controller extends Component {
     constructor() {
         super();
@@ -13,82 +14,113 @@ class Controller extends Component {
             counter: 0,
             instructionPlaying: false,
         }
+        this.buttonPressHandler = this.buttonPressHandler.bind(this);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        const { sequence, current, level } = this.props;
+
+        if (current === 0 && level > prevProps.level) {
+            this.playInstruction(sequence, current, level);
+        }
+    }
     buttonPressHandler(seqID) {
-        console.log(seqID);
+        const { actions, instructionPlaying } = this.props;
+        if (instructionPlaying) {
+            actions.customMessage("WAIT FOR THE INSTRUCTION TO FINISH!");
+        } else {
+            actions.evaluatePress(seqID);
+
+        }
+
     }
 
     debug(e) {
-        //this.refs.red.activate();
-        console.log(this.refs)
-        this.playSeqeuence();
+        const { sequence, current, level } = this.props;
+        this.playInstruction(sequence, current, level);
     }
 
-    playSeqeuence(array) {
-        let test = [0, 0, 1, 2, 3, 3];
+    playInstruction(sequence, current, level) {
+        const { actions } = this.props;
         let counter = 0;
+        actions.toggleInstruction();
         Whilst(
             () => {
-                return counter < test.length;
+                return counter < level;
             },
             (cb) => {
-                this.refs[seqIdToRef[test[counter]]].activate();
-                counter++;
+
                 setTimeout(() => {
+                    this.refs[seqIdToRef[sequence[counter]]].activate();
+                    counter++;
                     cb();
                 }, 1000);
 
             },
             (err, res) => {
-                console.log('done')
+                actions.toggleInstruction();
             }
         );
     }
 
     render() {
         return (
-            <div>
-                <Table>
-                    <tbody>
-                        <tr>
-                            <td><GameButton
-                                ref='red'
-                                color='red'
-                                htmlid='simon-red-button'
-                                handler={this.buttonPressHandler}
-                                audio={new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3")}
-                                seqID={0} /></td>
-                            <td><GameButton
-                                ref="blue"
-                                color={'blue'}
-                                htmlid={'simon-blue-button'}
-                                handler={this.buttonPressHandler}
-                                audio={new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3")}
-                                seqID={1} /></td>
-                        </tr>
-                        <tr>
-                            <td><GameButton
-                                ref="green"
-                                color={'green'}
-                                htmlid={'simon-green-button'}
-                                handler={this.buttonPressHandler}
-                                audio={new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")}
-                                seqID={2} /></td>
-                            <td><GameButton
-                                ref="yellow"
-                                color={'yellow'}
-                                htmlid={'simon-yellow-button'}
-                                handler={this.buttonPressHandler}
-                                audio={new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3")}
-                                seqID={3} /></td>
-                        </tr>
-                    </tbody>
-                </Table>
+            <Col xs={10} xsOffset={1}>
+                <DebugDisplay props={this.props} />
+                <Col xs={6} className="simon-buttons">
+                    <GameButton
+                        instructionPlaying={this.props.instructionPlaying}
+                        ref='red'
+                        color='red'
+                        htmlid='simon-red-button'
+                        handler={this.buttonPressHandler}
+                        audio={"https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"}
+                        seqID={0} />
+                </Col>
+                <Col xs={6} className="simon-buttons">
+                    <GameButton
+                        instructionPlaying={this.props.instructionPlaying}
+
+                        ref="blue"
+                        color={'blue'}
+                        htmlid={'simon-blue-button'}
+                        handler={this.buttonPressHandler}
+                        audio={"https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"}
+                        seqID={1} />
+                </Col>
+                <Col xs={6} className="simon-buttons">
+                    <GameButton
+                        instructionPlaying={this.props.instructionPlaying}
+
+                        ref="green"
+                        color={'green'}
+                        htmlid={'simon-green-button'}
+                        handler={this.buttonPressHandler}
+                        audio={"https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"}
+                        seqID={2} />
+                </Col>
+                <Col xs={6} className="simon-buttons">
+                    <GameButton
+                        instructionPlaying={this.props.instructionPlaying}
+
+                        ref="yellow"
+                        color={'yellow'}
+                        htmlid={'simon-yellow-button'}
+                        handler={this.buttonPressHandler}
+                        audio={"https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"}
+                        seqID={3} />
+                </Col>
+
+
+
+
+
+
+
                 <Button onClick={e => this.debug(e)}>
                     debug
             </Button>
-            </div>
+            </Col>
 
 
         );
@@ -103,7 +135,7 @@ const seqIdToRef = {
 }
 
 
-Controller.PropTypes ={
+Controller.PropTypes = {
     strict: PropTypes.bool.isRequired,
     on: PropTypes.bool.isRequired,
     sequence: PropTypes.array.isRequired

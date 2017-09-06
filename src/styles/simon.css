@@ -1,0 +1,34 @@
+#simon-red-button{
+
+
+   width: 100%;
+    padding-top:90%;
+    border-radius: 25%;
+}
+#simon-blue-button{
+
+    width: 100%;
+    padding-top:90%;
+    border-radius: 25%;
+}
+#simon-green-button{
+    width: 100%;
+    padding-top:90%;
+    border-radius: 25%;
+}
+#simon-yellow-button{
+
+    width: 100%;
+    padding-top:90%;
+    border-radius: 25%;
+}
+
+
+.simon-buttons{
+    padding-bottom: 4%;
+}
+.simon-button-background{
+    width: 100%;
+    background-color: black;
+    border-radius: 25%;
+}
