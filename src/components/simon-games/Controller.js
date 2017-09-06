@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import GameButton from './GameButton';
 import Whilst from 'async/whilst';
+import PropTypes from 'prop-types';
+import { generateSequence } from './Logic';
 
 class Controller extends Component {
     constructor() {
         super();
+        this.state = {
+            turn: 1,
+            counter: 0,
+            instructionPlaying: false,
+        }
     }
 
     buttonPressHandler(seqID) {
@@ -95,4 +102,10 @@ const seqIdToRef = {
     3: "yellow"
 }
 
+
+Controller.PropTypes ={
+    strict: PropTypes.bool.isRequired,
+    on: PropTypes.bool.isRequired,
+    sequence: PropTypes.array.isRequired
+}
 export default Controller;
