@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/simonActions';
 import { Col, Row, Button } from 'react-bootstrap';
-import ToggleButton from 'react-toggle-button'
+import ControlPanel from '../components/simon-games/ControlPanel';
+import TopPanel from '../components/simon-games/TopPanel';
 import '../styles/simon.css';
 
 class SimonGame extends Component {
@@ -33,14 +34,15 @@ class SimonGame extends Component {
         return (
             <Row>
                 <Col xs={12} md={8} mdOffset={2}>
-                    Strict Mode
-
-                    <ToggleButton
-                        value={simon.strict}
-                        onToggle={actions.toggleStrict}
-                    />
-
-                    <Controller {...simonActions} {...simon} />
+                    <Col xs={12}>
+                        <TopPanel {...simonActions} {...simon} />
+                    </Col>
+                    <Col xs={12}>
+                        <Controller {...simonActions} {...simon} />
+                    </Col>
+                    <Col xs={12}>
+                        <ControlPanel {...simonActions} {...simon} />
+                    </Col>
                 </Col>
             </Row>
 

@@ -12,16 +12,7 @@ export default function fuelSavingsReducer(state = initialState, action) {
 
         case types.NEXT_LEVEL:
             return { ...state, level: state.level + 1 }
-
-        case types.GAME_START:
-            return { ...state, sequence: generateSequence() }
-
-        case types.INCREASE_CURRENT:
-            return {...state, current: state.current + 1 }
-
-        case types.RESET_CURRENT:
-            return {...state, current: 0}
-
+            
         case types.CUSTOM_MESSAGE:
             return {...state, message: action.payload }
 

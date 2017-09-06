@@ -66,7 +66,6 @@ class Controller extends Component {
     render() {
         return (
             <Col xs={10} xsOffset={1}>
-                <DebugDisplay props={this.props} />
                 <Col xs={6} className="simon-buttons">
                     <GameButton
                         instructionPlaying={this.props.instructionPlaying}
@@ -110,13 +109,6 @@ class Controller extends Component {
                         audio={"https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"}
                         seqID={3} />
                 </Col>
-
-
-
-
-
-
-
                 <Button onClick={e => this.debug(e)}>
                     debug
             </Button>

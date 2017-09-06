@@ -43,7 +43,7 @@ class GameButton extends Component {
         return (
             <div className="simon-button-background">
                 <div onClick={(e) => this.handleClick(handler, e)} style={btnStyle} id={htmlid}>
-                    test
+                    
                 </div>
             </div>
         );
