@@ -20,8 +20,7 @@ export function checkForWin(gameState){
                 return 0;
             }
         }
-    }
-    
+    }    
     return 3;
 }
 
