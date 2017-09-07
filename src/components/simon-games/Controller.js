@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import GameButton from './GameButton';
 import Whilst from 'async/whilst';
 import PropTypes from 'prop-types';
-import { generateSequence } from './Logic';
-import DebugDisplay from './DebugDisplay';
 import { Col } from 'react-bootstrap';
+
 class Controller extends Component {
     constructor() {
         super();

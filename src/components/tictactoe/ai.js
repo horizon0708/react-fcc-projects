@@ -57,7 +57,7 @@ export function randomMove(gameState){
     let tempArr = [];
     for (var square in gameState) {
         if (gameState.hasOwnProperty(square)) {
-            if(gameState[square] === 0 && diagonalStartingPoints.indexOf(parseInt(square)) >= 0){               
+            if(gameState[square] === 0 && diagonalStartingPoints.indexOf(parseInt(square, 10)) >= 0){               
                 startArr.push(square);
             }
             if(gameState[square] === 0){               

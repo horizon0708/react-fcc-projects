@@ -8,10 +8,6 @@ import '../styles/tictactoe.css';
 import * as logic from '../components/tictactoe/logic';
 
 class TicTacToe extends Component {
-    constructor() {
-        super();
-    }
-
     componentDidUpdate(prevProps, prevState) {
         if (logic.checkForWin(prevProps.tictactoe.boardState) 
             !== logic.checkForWin(this.props.tictactoe.boardState)) {
@@ -19,8 +15,7 @@ class TicTacToe extends Component {
                     this.alertGameEnd(this.props.tictactoe.boardState);
                     
                     }.bind(this), 500);
-        }
-        
+        }       
     }
 
     alertGameEnd(gameState){
@@ -36,14 +31,15 @@ class TicTacToe extends Component {
         const { actions } = this.props
         const { tictactoe } = this.props;
         return (
-            <div>
-                <i className="fa fa-circle-o" aria-hidden="true"></i>
+            <Row>
+                <Col xs={12} xsOffset={1}>
+                <h1>Redux TicTacToe</h1>
                 <Board actions={actions} {...tictactoe}/>
-                <Button onClick={actions.resetBoard}>
-                    Play Again!
-                </Button>
-                
-            </div>
+                    <Button onClick={actions.resetBoard}>
+                        Play Again!
+                    </Button>    
+                </Col>
+            </Row>
         );
     }
 }

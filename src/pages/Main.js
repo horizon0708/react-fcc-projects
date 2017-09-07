@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import SimonGame from './SimonGame';
-
+import Header from '../components/Header';
 class Main extends Component {
-constructor(){
-    super();
-}
 
     render(){
         return(
             <div>
+                <Header />
                 {this.props.children}
             </div>
         );

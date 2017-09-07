@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 // pages to route
 import SimonGame from './pages/SimonGame';
 import TicTacToe from './pages/TicTacToe';
-import About from './pages/About';
 import Main from './pages/Main';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -22,7 +21,7 @@ class App extends Component {
       <Router history={browserHistory}>
       <Route path="/" component={Main}>
           <IndexRoute component={TicTacToe} />
-          <Route path="about" component={About} />
+
           <Route path="simongame" component={SimonGame} />
           <Route path="tictactoe" component={TicTacToe} />
       </Route>

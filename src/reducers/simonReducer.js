@@ -17,7 +17,7 @@ export default function simonReducer(state = initialState, action) {
             return {...state, message: action.payload }
 
         case types.EVALUATE_PRESS:
-            const { sequence, level, current, strict } = state;   
+            const { sequence, level, current } = state;   
             const input = action.payload;
             let newState = {...state};
             

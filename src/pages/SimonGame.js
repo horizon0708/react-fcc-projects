@@ -3,7 +3,7 @@ import Controller from '../components/simon-games/Controller';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/simonActions';
-import { Col, Row, Button } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import ControlPanel from '../components/simon-games/ControlPanel';
 import TopPanel from '../components/simon-games/TopPanel';
 import '../styles/simon.css';
@@ -25,10 +25,6 @@ class SimonGame extends Component {
         const { simon } = this.props;
         const simonActions = {
             actions
-        }
-
-        const simonStates = {
-            simon
         }
 
         return (

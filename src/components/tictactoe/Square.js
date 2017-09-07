@@ -16,10 +16,10 @@ class Square extends Component {
     }
 
     clickHandler(){
-        const { actions, squareId, boardState } = this.props;
+        const { actions, squareId, boardState, turn } = this.props;
 
-
-        if (boardState[squareId] === 0 && !logic.gameIsOver(boardState)){
+        console.log(this.props);
+        if (boardState[squareId] === 0 && !logic.gameIsOver(boardState) && turn === 1){
             actions.takeSquare(squareId);
             setTimeout(function() {    
                 actions.takeSquare(ai.evaluateNextMove(this.props.tictactoe.boardState));
