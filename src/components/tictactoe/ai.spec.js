@@ -60,7 +60,7 @@ const randomStates =[{
     7:2, 8:1, 9:0  
 }]
 
-it ('picks a random empty square',()=>{
+it ('picks an empty square',()=>{
     expect([2,3,4,6,9]).toContain(ai.randomMove(randomStates[0]));
 });
 

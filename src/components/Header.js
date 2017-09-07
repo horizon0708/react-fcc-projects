@@ -24,6 +24,9 @@ class Header extends Component {
                 <LinkContainer to="/tictactoe">
                 <NavItem eventKey={2}>TicTacToe</NavItem>
                 </LinkContainer>
+                <LinkContainer to="/twitchviewer">
+                <NavItem eventKey={3}>Twitch Viewer</NavItem>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
