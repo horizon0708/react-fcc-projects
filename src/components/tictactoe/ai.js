@@ -2,7 +2,7 @@
 import * as logic from './logic';
 
 export function evaluateNextMove(gameState){
-    if (logic.gameIsOver()){
+    if (logic.gameIsOver(gameState)){
         return null;
     }
     if (goForWin(gameState)){
@@ -17,15 +17,15 @@ export function evaluateNextMove(gameState){
     return randomMove(gameState)
 }
 
-function goForWin(gameState){
+export function goForWin(gameState){
     return findNextMove(gameState, 2, 1);
 }
 
-function defend(gameState){
+export function defend(gameState){
     return findNextMove(gameState, 1, 1);
 }
 
-function connectTwo(gameState){
+export function connectTwo(gameState){
     return findNextMove(gameState, 2, 2);
 }
 
@@ -33,7 +33,7 @@ function connectTwo(gameState){
 function findNextMove(gameState, player, emptySquaresInARow){
     for (var i = 0; i < logic.winConditions.length; i++) {
         // check whether there are two of your squares and one empty square.
-        let playerSquare, empty, move = 0
+        let playerSquare =0 , empty= 0, move = 0
         for (var n = 0; n < logic.winConditions[i].length; n++) {
             const winCons = logic.winConditions[i];
             if (gameState[winCons[n]] === player ) { 
@@ -43,7 +43,7 @@ function findNextMove(gameState, player, emptySquaresInARow){
                 empty++;
                 move = winCons[n];
             }
-            if (playerSquare===2 && empty === emptySquaresInARow){
+            if (playerSquare===(3-emptySquaresInARow) && empty === emptySquaresInARow){
                 return move;
             }
         }
@@ -51,16 +51,26 @@ function findNextMove(gameState, player, emptySquaresInARow){
     return 0;
 }
 
-function randomMove(gameState){
+export function randomMove(gameState){
+    let diagonalStartingPoints = [1,3,5,7]
+    let startArr = [];
     let tempArr = [];
     for (var square in gameState) {
         if (gameState.hasOwnProperty(square)) {
-            if(gameState[square] === 0){
+            if(gameState[square] === 0 && diagonalStartingPoints.indexOf(parseInt(square)) >= 0){               
+                startArr.push(square);
+            }
+            if(gameState[square] === 0){               
                 tempArr.push(square);
             }
         }
     }
-    return shuffleArray(tempArr)[0];
+    if (startArr.length > 0) {
+        return parseInt(shuffleArray(startArr)[0],10);
+    } else {
+        return parseInt(shuffleArray(tempArr)[0],10);
+        
+    }
 }
 
 function shuffleArray(array) {

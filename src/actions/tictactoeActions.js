@@ -7,3 +7,8 @@ export function takeSquare(squareId) {
   }
 }
 
+export function resetBoard(){
+  return{
+    type: "RESET_BOARD"
+  }
+}

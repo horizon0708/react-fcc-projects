@@ -1,34 +1,48 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as ai from './ai';
+import * as logic from './logic';
 
 class Square extends Component {
 
     renderSquare(owner) {
         if (owner === 1) {
-            return <i className="fa fa-times" aria-hidden="true"></i>
+            return <i className="fa fa-times tic-mark" aria-hidden="true"></i>
         }
         if (owner === 2) {
-            return <i className="fa fa-circle-o" aria-hidden="true"></i>
+            return <i className="fa fa-circle-o tic-mark" aria-hidden="true"></i>
         }
-        return "null";
+        return "";
     }
 
     clickHandler(){
         const { actions, squareId, boardState } = this.props;
-        actions.takeSquare(squareId);
-        setTimeout(function() {
-            actions.takeSquare(ai.evaluateNextMove(boardState));
-        }, 500);
+        if (boardState[squareId] === 0 && !logic.gameIsOver(boardState)){
+            actions.takeSquare(squareId);
+            setTimeout(function() {    
+                actions.takeSquare(ai.evaluateNextMove(this.props.tictactoe.boardState));
+            }.bind(this) , 500);
+        }
     }
 
     render() {
         const { boardState, squareId} = this.props;
         const squareOwner = boardState ? boardState[squareId] : 0;
         return (
-            <div onClick={()=>this.clickHandler()}>
+            <div onClick={()=>this.clickHandler()} className="tic-square">
                 {this.renderSquare(squareOwner)}
             </div>
         );
     }
 }
-export default Square;
+function mapStateToProps(state) {
+    return {
+        tictactoe: state.tictactoe
+    };
+}
+
+
+
+export default connect(
+    mapStateToProps
+)(Square);

@@ -2,11 +2,14 @@ import {createStore, compose, applyMiddleware} from 'redux';
 import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-
+import mySaga from '../sagas/saga';
+import createSagaMiddleware from 'redux-saga'
+const sagaMiddleware = createSagaMiddleware();
 function configureStore(initalState){
     const middlewares = [
         thunk,
-        logger
+        logger,
+        sagaMiddleware
     ]
 
     return createStore(rootReducer, initalState, compose(

@@ -10,7 +10,10 @@ import Main from './pages/Main';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
+
+
 const store = configureStore();
+
 
 class App extends Component {
   render() {
