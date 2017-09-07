@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 // pages to route
 import SimonGame from './pages/SimonGame';
 import TicTacToe from './pages/TicTacToe';
-import TwitchTvViewer from './pages/TwitchTvViewer';
-
 import Main from './pages/Main';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -26,7 +24,6 @@ class App extends Component {
 
           <Route path="simongame" component={SimonGame} />
           <Route path="tictactoe" component={TicTacToe} />
-          <Route path="twitchviewer" component={TwitchTvViewer} />
       </Route>
   </Router>
   </Provider>
