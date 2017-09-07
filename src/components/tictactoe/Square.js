@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as ai from './ai';
 
 class Square extends Component {
 
@@ -13,9 +14,11 @@ class Square extends Component {
     }
 
     clickHandler(){
-        const { actions, squareId } = this.props;
+        const { actions, squareId, boardState } = this.props;
         actions.takeSquare(squareId);
-        console.log(this.props);
+        setTimeout(function() {
+            actions.takeSquare(ai.evaluateNextMove(boardState));
+        }, 500);
     }
 
     render() {
