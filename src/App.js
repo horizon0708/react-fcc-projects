@@ -4,6 +4,7 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 // pages to route
 import SimonGame from './pages/SimonGame';
+import TicTacToe from './pages/TicTacToe';
 import About from './pages/About';
 import Main from './pages/Main';
 
@@ -17,9 +18,10 @@ class App extends Component {
       <Provider store={store}>
       <Router history={browserHistory}>
       <Route path="/" component={Main}>
-          <IndexRoute component={SimonGame} />
+          <IndexRoute component={TicTacToe} />
           <Route path="about" component={About} />
           <Route path="simongame" component={SimonGame} />
+          <Route path="tictactoe" component={TicTacToe} />
       </Route>
   </Router>
   </Provider>

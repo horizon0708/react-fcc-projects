@@ -8,7 +8,9 @@ constructor(){
 
     render(){
         return(
-            <SimonGame />
+            <div>
+                {this.props.children}
+            </div>
         );
     }
 }

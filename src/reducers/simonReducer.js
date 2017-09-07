@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes';
 
 import { generateSequence } from '../components/simon-games/Logic';
 
-export default function fuelSavingsReducer(state = initialState, action) {
+export default function simonReducer(state = initialState, action) {
     switch (action.type) {
         case types.TOGGLE_STRICT:
             return { ...state, strict: !state.strict }
