@@ -43,7 +43,11 @@ export default function simonReducer(state = initialState, action) {
             }
             newState ={...newState, current:0, message: "TRY AGAIN" } 
             return newState
-
+        
+        case types.RESTART_GAME:
+            
+            return {...state, level:1, current:0 ,sequence: generateSequence()}
+        
         default:
             return state;
             }

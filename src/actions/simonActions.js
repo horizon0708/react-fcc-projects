@@ -49,3 +49,9 @@ export function evaluatePress(seqID){
     payload: seqID
   }
 }
+
+export function restartGame(){
+  return{
+    type: types.RESTART_GAME
+  }
+}

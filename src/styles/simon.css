@@ -1,34 +1,38 @@
 #simon-red-button{
-
-
-   width: 100%;
-    padding-top:90%;
+    width:100px;
+    height:100px;
     border-radius: 25%;
 }
 #simon-blue-button{
-
-    width: 100%;
-    padding-top:90%;
+    width:100px;
+    height:100px;
     border-radius: 25%;
 }
 #simon-green-button{
-    width: 100%;
-    padding-top:90%;
+    width:100px;
+    height:100px;
     border-radius: 25%;
 }
+
 #simon-yellow-button{
-
-    width: 100%;
-    padding-top:90%;
+    width:100px;
+    height:100px;
     border-radius: 25%;
 }
 
-
-.simon-buttons{
-    padding-bottom: 4%;
+.simon-table{
+    table-layout: fixed;
+    width: 200px;
+    height: 200px;
 }
+
+.table-nonfluid {
+    width: auto !important;
+ }
+
 .simon-button-background{
-    width: 100%;
+    width:100px;
+    height:100px;
     background-color: black;
     border-radius: 25%;
 }

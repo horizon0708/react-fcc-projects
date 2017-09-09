@@ -11,7 +11,7 @@ class GameButton extends Component {
     }
 
     componentDidMount() {
-        this.setState({ audio: new Audio(this.props.audio) }, () => console.log(this.state));
+        this.setState({ audio: new Audio(this.props.audio) });
     }
 
     handleClick(handler, e) {
@@ -38,7 +38,7 @@ class GameButton extends Component {
         const { htmlid, color, handler } = this.props;
         const btnStyle = {
             backgroundColor: color,
-            opacity: 0.5
+            opacity: 0.5,
         }
         return (
             <div className="simon-button-background">

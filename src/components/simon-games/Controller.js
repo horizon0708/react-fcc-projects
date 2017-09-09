@@ -63,10 +63,14 @@ class Controller extends Component {
     }
 
     render() {
+        const { actions } = this.props;
         return (
             <Col xs={10} xsOffset={1}>
-                <Col xs={6} className="simon-buttons">
-                    <GameButton
+                <table className="simon-table">
+                    <tbody>
+                        <tr>
+                            <th>
+                            <GameButton
                         instructionPlaying={this.props.instructionPlaying}
                         ref='red'
                         color='red'
@@ -74,9 +78,9 @@ class Controller extends Component {
                         handler={this.buttonPressHandler}
                         audio={"https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"}
                         seqID={0} />
-                </Col>
-                <Col xs={6} className="simon-buttons">
-                    <GameButton
+                            </th>
+                            <th>
+                            <GameButton
                         instructionPlaying={this.props.instructionPlaying}
 
                         ref="blue"
@@ -85,9 +89,11 @@ class Controller extends Component {
                         handler={this.buttonPressHandler}
                         audio={"https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"}
                         seqID={1} />
-                </Col>
-                <Col xs={6} className="simon-buttons">
-                    <GameButton
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                            <GameButton
                         instructionPlaying={this.props.instructionPlaying}
 
                         ref="green"
@@ -96,9 +102,9 @@ class Controller extends Component {
                         handler={this.buttonPressHandler}
                         audio={"https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"}
                         seqID={2} />
-                </Col>
-                <Col xs={6} className="simon-buttons">
-                    <GameButton
+                            </th>
+                            <th>
+                            <GameButton
                         instructionPlaying={this.props.instructionPlaying}
 
                         ref="yellow"
@@ -107,10 +113,16 @@ class Controller extends Component {
                         handler={this.buttonPressHandler}
                         audio={"https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"}
                         seqID={3} />
-                </Col>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <Button onClick={e => this.debug(e)}>
                     debug
             </Button>
+
+                <Button onClick={()=>actions.restartGame()}>Restart</Button>
             </Col>
 
 
