@@ -16,20 +16,16 @@ class SimonGame extends Component {
         }
     }
 
-    buttonPressHandler(seqID) {
-        console.log(seqID);
-    }
-
     render() {
-        const { actions } = this.props
+        const { actions } = this.props;
         const { simon } = this.props;
         const simonActions = {
             actions
-        }
+        };
 
         return (
             <Row>
-                <Col xs={12} md={8} mdOffset={2}>
+                <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2}>
 
                         <Col xs={12}>
                             <TopPanel {...simonActions} {...simon} />

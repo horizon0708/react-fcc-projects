@@ -11,6 +11,6 @@ const DebugDisplay = ({ props }) => {
         current: {props.current}<br />
         sequence: {props.sequence}<br />
     </div>
-}
+};
 
 export default DebugDisplay;

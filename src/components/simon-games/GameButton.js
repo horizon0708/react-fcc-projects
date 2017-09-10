@@ -23,7 +23,7 @@ class GameButton extends Component {
     }
 
     activate() {
-        const { htmlid } = this.props
+        const { htmlid } = this.props;
         const button = document.getElementById(htmlid);
         button.style.opacity = 1;
         this.state.audio.play();
@@ -39,7 +39,7 @@ class GameButton extends Component {
         const btnStyle = {
             backgroundColor: color,
             opacity: 0.5,
-        }
+        };
         return (
             <div className="simon-button-background">
                 <div onClick={(e) => this.handleClick(handler, e)} style={btnStyle} id={htmlid}>
@@ -56,4 +56,4 @@ GameButton.PropTypes = {
     color: PropTypes.string.isRequired,
     htmlid: PropTypes.string.isRequired,
     seqID: PropTypes.number.isRequired
-}
+};

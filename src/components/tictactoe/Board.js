@@ -3,12 +3,12 @@ import Square from './Square';
 
 class Board extends Component {
     render(){
-        const { boardState, actions, turn } = this.props
+        const { boardState, actions, turn } = this.props;
         const props = {
             boardState,
             actions,
             turn
-        }
+        };
         return(
             <table className="tic-table">
                 <tbody>

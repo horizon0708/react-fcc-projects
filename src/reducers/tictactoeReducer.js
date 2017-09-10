@@ -3,13 +3,13 @@
 export default function tictactoeReducer(state = initialState, action) {
     switch (action.type) {
         case "TAKE_SQUARE":
-            const squareId  = action.payload
+            const squareId  = action.payload;
             return { ...state, 
                 boardState:{
                     ...state.boardState,
                     [squareId] : state.turn
                 }, 
-                turn: state.turn === 1 ? 2 : 1}
+                turn: state.turn === 1 ? 2 : 1};
 
         case "RESET_BOARD":
             return {
@@ -17,7 +17,7 @@ export default function tictactoeReducer(state = initialState, action) {
                 boardState: {
                     ...initialState.boardState
                 }
-            }
+            };
 
         default:
             return state;
@@ -37,4 +37,4 @@ export default function tictactoeReducer(state = initialState, action) {
             9 : 0
         },
         turn: 1
-    }
+    };

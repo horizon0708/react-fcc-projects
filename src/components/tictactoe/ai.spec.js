@@ -17,7 +17,7 @@ const winningStates = [{
 }];
 
 it ('knows the winning move', ()=>{
-    for (var i = 0; i < winningStates.length; i++) {
+    for (let i = 0; i < winningStates.length; i++) {
         expect(ai.goForWin(winningStates[i])).toEqual(3);      
     }    
 });
@@ -45,7 +45,7 @@ const connectStates =[{ //2,3,4,7
     1:2, 2:1, 3:0, //3,6
     4:0, 5:1, 6:0,
     7:1, 8:0, 9:2 
-}]
+}];
 
 it ('knows how to connect two', ()=>{
     expect([2,3,4,7]).toContain(ai.connectTwo(connectStates[0]));
@@ -58,7 +58,7 @@ const randomStates =[{
     1:2, 2:0, 3:0,
     4:0, 5:1, 6:0,
     7:2, 8:1, 9:0  
-}]
+}];
 
 it ('picks a random empty square',()=>{
     expect([2,3,4,6,9]).toContain(ai.randomMove(randomStates[0]));
@@ -96,4 +96,6 @@ it('can evaluate the correct next move',()=>{
     expect([1,3]).toContain(ai.evaluateNextMove(allStates[3]));
     expect(ai.evaluateNextMove(allStates[4])).toEqual(1);
     expect(ai.evaluateNextMove(allStates[5])).toEqual(1);
-})
+});
+
+

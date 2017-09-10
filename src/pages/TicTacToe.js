@@ -28,16 +28,16 @@ class TicTacToe extends Component {
     }
 
     render() {
-        const { actions } = this.props
+        const { actions } = this.props;
         const { tictactoe } = this.props;
         return (
             <Row>
-                <Col xs={12} xsOffset={1}>
+                <Col xs={12} smOffset={1} sm={10} md={8} mdOffset={2}>
                 <h1>Redux TicTacToe</h1>
                 <Board actions={actions} {...tictactoe}/>
                     <Button onClick={actions.resetBoard}>
                         Play Again!
-                    </Button>    
+                    </Button>
                 </Col>
             </Row>
         );

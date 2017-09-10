@@ -10,7 +10,7 @@ function configureStore(initalState){
         thunk,
         logger,
         sagaMiddleware
-    ]
+    ];
 
     return createStore(rootReducer, initalState, compose(
         applyMiddleware(...middlewares)

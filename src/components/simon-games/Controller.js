@@ -12,7 +12,7 @@ class Controller extends Component {
             turn: 1,
             counter: 0,
             instructionPlaying: false,
-        }
+        };
         this.buttonPressHandler = this.buttonPressHandler.bind(this);
     }
 
@@ -58,6 +58,7 @@ class Controller extends Component {
             },
             (err, res) => {
                 actions.toggleInstruction();
+
             }
         );
     }
@@ -65,7 +66,7 @@ class Controller extends Component {
     render() {
         const { actions } = this.props;
         return (
-            <Col xs={10} xsOffset={1}>
+            <div>
                 <table className="simon-table">
                     <tbody>
                         <tr>
@@ -119,11 +120,11 @@ class Controller extends Component {
                 </table>
 
                 <Button onClick={e => this.debug(e)}>
-                    debug
+                    Play Instruction
             </Button>
 
                 <Button onClick={()=>actions.restartGame()}>Restart</Button>
-            </Col>
+            </div>
 
 
         );
@@ -135,12 +136,12 @@ const seqIdToRef = {
     1: "blue",
     2: "green",
     3: "yellow"
-}
+};
 
 
 Controller.PropTypes = {
     strict: PropTypes.bool.isRequired,
     on: PropTypes.bool.isRequired,
     sequence: PropTypes.array.isRequired
-}
+};
 export default Controller;
