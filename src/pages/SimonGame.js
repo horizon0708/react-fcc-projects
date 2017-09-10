@@ -8,6 +8,7 @@ import ControlPanel from '../components/simon-games/ControlPanel';
 import TopPanel from '../components/simon-games/TopPanel';
 import '../styles/simon.css';
 
+
 class SimonGame extends Component {
     constructor() {
         super();
